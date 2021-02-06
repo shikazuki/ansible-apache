@@ -1,0 +1,13 @@
+- hosts: ubuntu
+  user: vagrant
+  become: yes
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        update_cache: yes
+    - name: start apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
